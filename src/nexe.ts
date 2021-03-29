@@ -1,49 +1,42 @@
-import { EOL } from 'os'
-import { compose } from 'app-builder'
-import { NexeCompiler, NexeError } from './compiler'
-import { normalizeOptions, NexeOptions, NexePatch } from './options'
-import resource from './steps/resource'
-import clean from './steps/clean'
-import cli from './steps/cli'
-import bundle from './steps/bundle'
-import download from './steps/download'
-import shim from './steps/shim'
-import artifacts from './steps/artifacts'
-import patches from './patches'
+import { NexeOptions, readOpts } from './options.js'
+import { getLogger, gray, green, red } from './logger.js'
+import { Readable } from 'node:stream'
 
-async function compile(
-  compilerOptions?: Partial<NexeOptions>,
-  callback?: (err: Error | null) => void
-) {
-  let error = null,
-    options: NexeOptions | null = null,
-    compiler: NexeCompiler | null = null
-
+export async function nexe(nexeOptions?: Partial<NexeOptions>): Promise<void> {
+  const start = Date.now(),
+    log = getLogger(nexeOptions)
+  log.start()
+  let hadError = false
   try {
-    options = normalizeOptions(compilerOptions)
-    compiler = new NexeCompiler(options)
-    await compose(
-      clean,
-      resource,
-      cli,
-      bundle,
-      shim,
-      download,
-      options.build ? [artifacts, ...patches, ...(options.patches as NexePatch[])] : [],
-      options.plugins as NexePatch[]
-    )(compiler)
-  } catch (e) {
-    error = e
+    const options = await readOpts(nexeOptions)
+    await compile(options, await bundle(options), build(options))
+  } catch (error) {
+    hadError = true
+    log.fail(gray(error.nexe || error.stack || error.code || error))
+  } finally {
+    const duration = Math.abs((start - Date.now()) / 1000)
+    log.stopAndPersist({
+      text: (hadError ? red : green)(`Finished in ${duration.toFixed(3)}s`),
+      symbol: hadError ? red('✖') : green('✔️'),
+    })
   }
-
-  if (error) {
-    compiler && compiler.quit(error)
-    if (callback) return callback(error)
-    return Promise.reject(error)
-  }
-
-  if (callback) callback(null)
 }
 
-export { compile, NexeCompiler }
-export { argv, version, NexeOptions, help } from './options'
+export async function* build(options: NexeOptions): AsyncGenerator<Readable> {
+  void options
+}
+
+export function bundle(options: NexeOptions): Promise<Readable> {
+  void options
+  return Promise.resolve(new Readable())
+}
+
+export async function compile(
+  options: NexeOptions,
+  app: Readable,
+  builds: AsyncGenerator<Readable>
+): Promise<void> {
+  for await (const build of builds) {
+    void build
+  }
+}
