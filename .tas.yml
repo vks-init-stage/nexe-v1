@@ -3,6 +3,7 @@ framework: mocha
 licenseTier: xsmall
 blocklist:
    - "./test/options.spec.ts##options##cwd##should use process.cwd() if nothing is provided"
+   - "./test/target.spec.ts##Targets##new test for BL oK"
 postMerge:
   pattern:
     - "./test/*.spec.ts"
