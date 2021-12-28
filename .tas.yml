@@ -1,6 +1,8 @@
 ---
 framework: mocha
 licenseTier: xsmall
+blocklist:
+  - "./test/target.spec.ts.js##Targets##new test for BL oK"
 postMerge:
   pattern:
     - "./test/*.spec.ts"
