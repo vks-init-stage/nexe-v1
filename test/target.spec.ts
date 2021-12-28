@@ -26,4 +26,8 @@ describe('Targets', () => {
   it('should stringify and toString', () => {
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
+  
+   it('new test for BL', () => {
+    expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
+  })
 })
