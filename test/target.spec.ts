@@ -27,7 +27,7 @@ describe('Targets', () => {
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
   
-   it('new test for BL', () => {
+   it('new test for BL oK', () => {
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
 })
