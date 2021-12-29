@@ -3,7 +3,6 @@ framework: mocha
 licenseTier: xsmall
 blocklist:
    - "./test/target.spec.ts##Targets##new test for BL oK"
-   - "./test/target.spec.ts##Targets##Dummy test case 1"
    
 postMerge:
   pattern:
