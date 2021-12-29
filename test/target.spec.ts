@@ -30,4 +30,9 @@ describe('Targets', () => {
    it('new test for BL oK', () => {
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
+  
+  it('Dummy test case 1', () => {
+    expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
+  })
+  
 })
