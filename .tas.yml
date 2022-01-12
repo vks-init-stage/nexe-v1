@@ -3,25 +3,19 @@ framework: mocha
 licenseTier: xsmall
 blocklist:
    - "./test/target.spec.ts##Targets##new test for BL oK"
-   - "./test/dummy.spec.ts##dummy"
    
----
-postMerge: 
-  isActive: false
-  env: 
-    REPONAME: nexe
-  pattern: 
-    - "./test/**/*.spec.ts"
-  strategy: 
-    threshold: 1
-    name: after_n_commits
+postMerge:
+  pattern:
+    - "./test/*.spec.ts"
+  strategy:
+    threshold: <5|100s|30m|6h>
+    type: <commit|time>
 preMerge:
   pattern:
-    - "./test/**/*.spec.ts"
+    - "./test/*.spec.ts"
 preRun:
      command:
-        - npm ci
-        - docker build --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} --tag=nucleus
+        - npm install
 postRun:
      command:
         - node --version
