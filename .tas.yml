@@ -15,9 +15,9 @@ preMerge:
   pattern:
     - "./test/*.spec.ts"
 preRun:
-     command:
-        - npm install
+  command:
+    - npm install
 postRun:
-     command:
-        - node --version
+  command:
+    - node --version
 version: 2.2
