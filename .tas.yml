@@ -2,8 +2,10 @@
 framework: mocha
 licenseTier: xsmall
 blocklist:
-   - "./test/target.spec.ts##Targets##new test for BL oK"
+   - "./test/target.spec.ts##Targets##new test for BL oK" 
    - "./test/options.spec.ts##options##cwd"
+   - "./test/options.spec.ts##options##remote"
+   
    
 postMerge:
   pattern:
