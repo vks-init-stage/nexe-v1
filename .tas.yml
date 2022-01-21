@@ -6,9 +6,6 @@ blocklist:
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
-  strategy:
-    threshold: 1
-    name: after_n_commits
 preMerge:
   pattern:
     - "./test/**/*.spec.ts"
