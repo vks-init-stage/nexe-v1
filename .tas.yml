@@ -1,8 +1,6 @@
 ---
 framework: mocha
 tier: xsmall
-blocklist:
-  - "./test/options.spec.ts##options##"
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
