@@ -2,7 +2,7 @@
 framework: mocha
 tier: xsmall
 blocklist:
-   - "./test/target.spec.ts##Targets##new test for BL oK" 
+  - "./test/options.spec.ts##options##"
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
@@ -15,4 +15,4 @@ preRun:
 postRun:
      command:
         - node --version
-version: 2.2
+version: 2.0
