@@ -4,6 +4,7 @@ tier: xsmall
 blocklist:
   - "test/options.spec.ts##options##cwd##"
   - "./test/options.spec.ts##options##output##should work"
+  - "./test/target.spec.ts##Targets##should stringify and toString"
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
