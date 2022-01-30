@@ -6,6 +6,7 @@ blocklist:
   - "./test/options.spec.ts##options##output##should work"
   - "./test/target.spec.ts##Targets##should stringify and toString"
   - "./test/dummy.spec.ts##dummy"
+  - "./test/new_test_suite.spec.ts##new suite 1##new-test-2##"
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
