@@ -18,6 +18,10 @@ describe('new suite 1', () => {
     
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
+  it('new-test-2.24', () => {
+    
+    expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
+  })
   
   
 })
