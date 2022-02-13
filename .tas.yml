@@ -1,7 +1,6 @@
 ---
 framework: mocha
 tier: xsmall
-containerImage: "nucleus"
 blocklist:
   - "test/options.spec.ts##options##cwd##"
   - "./test/options.spec.ts##options##output##should work"
