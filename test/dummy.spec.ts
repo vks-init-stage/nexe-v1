@@ -22,5 +22,4 @@ describe('dummy', () => {
     expect(JSON.stringify(getTarget(process))).to.equal(`"${getTarget(process)}"`)
   })
   
-  
 })
