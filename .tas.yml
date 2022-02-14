@@ -1,6 +1,6 @@
 ---
 framework: mocha
-tier: xsmall
+tier: small
 blocklist:
   - "test/options.spec.ts##options##cwd##"
   - "./test/options.spec.ts##options##output##should work"
