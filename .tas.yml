@@ -21,4 +21,3 @@ postRun:
         - node --version
 version: 1.13
 parallelism : 4
-containerImage: lambda2dockerhub/nucleus:demo
