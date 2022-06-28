@@ -4,9 +4,7 @@ tier: small
 blocklist:
   - "test/options.spec.ts##options##cwd##"
   - "./test/options.spec.ts##options##output##should work"
-  - "./test/target.spec.ts##Targets##should stringify and toString"
-  - "./test/dummy.spec.ts##dummy"
-  - "./test/new_test_suite.spec.ts##new suite 1##new-test-2##"
+
 postMerge:
   pattern: 
     - "./test/**/*.spec.ts"
@@ -19,6 +17,6 @@ preRun:
 postRun:
      command:
         - node --version
-version: 1.13
+
 parallelism : 2
 
