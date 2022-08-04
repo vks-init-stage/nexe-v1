@@ -7,7 +7,7 @@ blocklist:
 
 postMerge:
   pattern: 
-    - "./test/**/*.spec.ts"
+    - "./test/**/*.spec.ts""
 preMerge:
   pattern:
     - "./test/**/*.spec.ts"
